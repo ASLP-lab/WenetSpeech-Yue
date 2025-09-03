@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://QicongXie.github.io/end2endvc/ -->
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <title>WenetSpeech-Yue: A Large-Scale Cantonese Speech Corpus with Multi-dimensional Annotation</title>
+  <meta name="generator" content="Jekyll v3.9.0">
+  <meta property="og:title" content="TODO: title">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+  <section class="page-header">
+    <!-- <h1 class="project-name">Demo PAGE</h1> -->
+    <!-- <h2 class="project-tagline"></h2> -->
+  </section>
+
+  <section class="main-content">
+    <h1 id="">
+      <center>WenetSpeech-Yue: A Large-Scale Cantonese Speech Corpus with Multi-dimensional Annotation</center>
+    </h1>
+  
+    <div style="text-align:center; line-height:1.6; font-family:Arial, sans-serif;">
+  
+    <p>
+      Longhao Li<sup>1</sup>, Zhao Guo<sup>1</sup>, Hongjie Chen<sup>2</sup>, 
+      Yuhang Dai<sup>1</sup>, Ziyu Zhang<sup>1</sup>, Hongfei Xue<sup>1</sup>, 
+      Tianlun Zuo<sup>1</sup>, Chengyou Wang<sup>1</sup>, Shuiyuan Wang<sup>1</sup>, 
+      Xin Xu<sup>3</sup>, Hui Bu<sup>3</sup>, Jie Li<sup>2</sup>, Jian Kang<sup>2</sup>, 
+      Binbin Zhang<sup>4</sup>, Ruibin Yuan<sup>5</sup>, Ziya Zhou<sup>5</sup>, 
+      Wei Xue<sup>5</sup>, Lei Xie<sup>1</sup>
+    </p>
+  
+    <p>
+      <sup>1</sup> ASLP, Northwest Polytechnical University <br>
+      <sup>2</sup> Institute of Artificial Intelligence (TeleAI), China Telecom <br>
+      <sup>3</sup> Beijing AISHELL Technology Co., Ltd. <br>
+      <sup>4</sup> WeNet Open Source Community <br>
+      <sup>5</sup> Hong Kong University of Science and Technology
+    </p>
+  
+  </div>
+
+
+    <p align="center">
+    📑 <a href="https://www.arxiv.org/abs/2508.09600">Paper</a> &nbsp&nbsp | &nbsp&nbsp 
+    🐙 <a href="https://github.com/ASLP-lab/WenetSpeech-Yue">GitHub</a> &nbsp&nbsp | &nbsp&nbsp 
+    🤗 <a href="https://huggingface.co/collections/ASLP-lab/wenetspeech-yue-68b690d287cde88389e5dba1">HuggingFace</a>
+    <br>
+    🖥️ <a href="https://huggingface.co/spaces/ASLP-lab/WenetSpeech-Yue">HuggingFace Space</a> &nbsp&nbsp | &nbsp&nbsp 
+    🎤 <a href="https://llh666521.github.io/WenetSpeech-Yue/">Demo Page</a> &nbsp&nbsp | &nbsp&nbsp 
+    💬 <a href="https://github.com/llh666521/WenetSpeech-Yue?tab=readme-ov-file#contact">Contact Us</a>
+    </p>
+
+    <br><br>
+    <h2 id="abstract" style="text-align: center;">Abstract<a name="abstract"></a></h2>
+    <p style="text-align: justify;">The development of speech understanding and generation has been significantly accelerated by the availability of large-scale, high-quality speech datasets. Among these, ASR and TTS are regarded as the most established and fundamental tasks. However, for Cantonese (Yue Chinese), spoken by approximately 84.9 million native speakers worldwide, limited annotated resources have hindered progress and resulted in suboptimal ASR and TTS performance. To address this challenge, we propose WenetSpeech-Pipe, an integrated pipeline for building large-scale speech corpus with multi-dimensional annotation tailored for speech understanding and generation. It comprises six modules: Audio Collection, Speaker Attributes Annotation, Speech Quality Annotation, Automatic Speech Recognition, Text Postprocessing and Recognizer Output Voting, enabling rich and high-quality annotations. Based on this pipeline, we release WenetSpeech-Yue, the first large-scale Cantonese speech corpus with multi-dimensional annotation for ASR and TTS, covering 21,800 hours across 10 domains with annotations including ASR transcription, text confidence, speaker identity, age, gender, speech quality scores, among other annotations. We also release WSYue-eval, a comprehensive Cantonese benchmark with two components: WSYue-ASR-eval, a manually annotated set for evaluating ASR on short and long utterances, code-switching, and diverse acoustic conditions, and WSYue-TTS-eval, with base and coverage subsets for standard and generalization testing. Experimental results show that models trained on WenetSpeech-Yue achieve competitive results against state-of-the-art (SOTA) Cantonese ASR and TTS systems, including commercial and LLM-based models, highlighting the value of our dataset and pipeline. The dataset, benchmark, and the ASR and TTS models built upon WenetSpeech-Yue will be open-sourced. Demos can be found in the supplementary material.</p>
+
+    <h2 id="pipeline" style="text-align: center;">WenetSpeech-Pipe<a name="pipeline"></a></h2>
+    <p style="text-align: justify;">WenetSpeech-Pipe is an automated pipeline specifically designed for building large-scale Cantonese datasets with multi-dimensional annotation. It consists of six components: (A) Audio Collection, (B) Speaker Attributes Annotation, (C) Speech Quality Annotation, (D) Automatic Speech Recognition, (E) Text Post-Processing, and (F) Recognizer Output Voting. The figure below provides an overview of the WenetSpeech-Pipe.</p>
+
+
+    
+    <div style="text-align:center;">
+      <img src="raw/fig/WenetSpeech-Pipe.svg" alt="WenetSpeech-Pipe">
+    </div>
+
+
+    <h2 id="dataset" style="text-align: center;">WenetSpeech-Yue<a name="dataset"></a></h2>
+    <ul style="text-align: justify;">
+    <h3 style="text-align: center;">Dataset Overview<a name="overview"></a></h3>
+      <li>Contains 21,800 hours of large-scale Cantonese speech corpus with rich annotations, the largest open-source resource for Cantonese speech research.</li>
+      <li>Stores metadata in a single JSON file, including audio path, duration, text confidence, speaker identity, SNR, DNSMOS, age, gender, and character-level timestamps. Additional metadata tags may be added in the future.</li>
+      <li>Covers ten domains: Storytelling, Entertainment, Drama, Culture, Vlog, Commentary, Education, Podcast, News, and Others.</li>
+    </ul>
+    
+    <div style="text-align:center;">
+      <img src="raw/fig/data_distribution.png" alt="WenetSpeech-Pipe" width="1000">
+    </div>
+
+    <h3 style="text-align: center;">Data Samples<a name="data_samples"></a></h3>
+      <table style="text-align: center; width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="width: 10%; max-width: 120px;">Domain</th>
+              <th style="width: 30%; max-width: 300px;">Sample 1</th>
+              <th style="width: 30%; max-width: 300px;">Sample 2</th>
+              <th style="width: 30%; max-width: 300px;">Sample 3</th>
+            </tr>
+          </thead>
+        <tbody>
+      
+          <tr>
+            <td>Storytelling</td>
+            <td>
+              <audio controls src="raw/samples/gd0006277_2929310_2932210.wav"></audio><br>
+              <small>两只小企鹅都有嘢食</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/gd0046360_472330_486480.wav"></audio><br>
+              <small style="display:inline-block; max-width:260px; white-space:normal; word-break:break-all; text-align:left;">
+                刘备仲马鞭一指蜀兵一齐掩杀过去打到吴兵大败唉刘备八路兵马以雷霆万钧之势啊杀到吴兵啊尸横遍野血流成河
+              </small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/gd1002659_10980_15540.wav"></audio><br>
+              <small>第日长老就请咗成班盗木师傅嚟啦</small>
+            </td>
+          </tr>
+      
+          <tr>
+            <td>Entertainment</td>
+            <td>
+              <audio controls src="raw/samples/xq0015072_175450_190230.wav"></audio><br>
+              <small style="display:inline-block; max-width:260px; white-space:normal; word-break:break-all; text-align:left;">
+                叫做诶诶直入式你个脑部里边咧记得呢一个嘅以前香港有一个广告好出名嘅佢乜嘢都冇噶净系影住喺弥敦道佢哋间铺头嘅啫但系就不停有人嗌啦平平吧平吧
+              </small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/xq0016523_327940_334360.wav"></audio><br>
+              <small>原来王力宏咧系佢家中里面咧成就最低个吓哇</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/xq0026600_321750_325270.wav"></audio><br>
+              <small>大约系八分钟之后或者十分钟啦佢就会开始滚翻起</small>
+            </td>
+          </tr>
+      
+          <tr>
+            <td>Drama</td>
+            <td>
+              <audio controls src="raw/samples/gd0040831_1004210_1008520.wav"></audio><br>
+              <small>忽然从光线死角嘅阴影度窜出一只大猫</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/gd0039300_608520_611030.wav"></audio><br>
+              <small>无论你提出任何嘅要求</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/gd0053388_916230_919890.wav"></audio><br>
+              <small>跟住佢就坐低马双手运力</small>
+            </td>
+          </tr>
+      
+          <tr>
+            <td>Vlog</td>
+            <td>
+              <audio controls src="raw/samples/gd0015582_0_4280.wav"></audio><br>
+              <small>今日我带大家去见识一位九零后嘅靓仔咧</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/gd0008289_110830_115340.wav"></audio><br>
+              <small>咁咁多样材料咁我哋首先第一步处理咗一件</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/xg0001887_505950_509890.wav"></audio><br>
+              <small>咁咧当然睇月路咧我哋要睇</small>
+            </td>
+          </tr>
+      
+          <tr>
+            <td>Commentary</td>
+            <td>
+              <audio controls src="raw/samples/xg0011541_133580_136570.wav"></audio><br>
+              <small>香港嘅消费市场从此不一样</small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/xg0011541_258290_268600.wav"></audio><br>
+              <small style="display:inline-block; max-width:260px; white-space:normal; word-break:break-all; text-align:left;">
+                啲点样对于佢哋嘅服务态度啊不透过呢一年左右嘅时间啦其实大家都静一静啦咁你就会见到香港嘅经济其实
+              </small>
+            </td>
+            <td>
+              <audio controls src="raw/samples/xg0011541_126000_133220.wav"></audio><br>
+              <small>二零零三年中央政府推出个人游计划挽救沙士后一蹶不振的香港经济</small>
+            </td>
+          </tr>
+      
+        </tbody>
+      </table>
+
+    <h2 style="text-align: center;">ASR Leaderboard<a name="Comparison"></a></h2>
+
+    <table style="margin:0 auto; border-collapse: collapse; text-align:center;">
+      <tr>
+        <th align="left" rowspan="2">Model</th>
+        <th align="center" rowspan="2">#Params (M)</th>
+        <th align="center" colspan="2">In-House</th>
+        <th align="center" colspan="5">Open-Source</th>
+        <th align="center" colspan="2">WSYue-eval</th>
+      </tr>
+      <tr>
+        <th align="center">Dialogue</th>
+        <th align="center">Reading</th>
+        <th align="center">yue</th>
+        <th align="center">HK</th>
+        <th align="center">MDCC</th>
+        <th align="center">Daily_Use</th>
+        <th align="center">Commands</th>
+        <th align="center">Short</th>
+        <th align="center">Long</th>
+      </tr>
+    
+      <tr><td align="left" colspan="11"><b>w/o LLM</b></td></tr>
+      <tr>
+        <td align="left"><b>Conformer-Yue⭐</b></td><td align="center">130</td><td align="center"><b>16.57</b></td><td align="center">7.82</td><td align="center">7.72</td><td align="center">11.42</td><td align="center">5.73</td><td align="center">5.73</td><td align="center">8.97</td><td align="center"><ins>5.05</ins></td><td align="center">8.89</td>
+      </tr>
+      <tr>
+        <td align="left">Paraformer</td><td align="center">220</td><td align="center">83.22</td><td align="center">51.97</td><td align="center">70.16</td><td align="center">68.49</td><td align="center">47.67</td><td align="center">79.31</td><td align="center">69.32</td><td align="center">73.64</td><td align="center">89.00</td>
+      </tr>
+      <tr>
+        <td align="left">SenseVoice-small</td><td align="center">234</td><td align="center">21.08</td><td align="center"><ins>6.52</ins></td><td align="center">8.05</td><td align="center"><b>7.34</b></td><td align="center">6.34</td><td align="center">5.74</td><td align="center"><ins>6.65</ins></td><td align="center">6.69</td><td align="center">9.95</td>
+      <tr>
+        <td align="left"><b>SenseVoice-s-Yue⭐</b></td><td align="center">234</td><td align="center">19.19</td><td align="center">6.71</td><td align="center">6.87</td><td align="center">8.68</td><td align="center"><ins>5.43</ins></td><td align="center">5.24</td><td align="center">6.93</td><td align="center">5.23</td><td align="center">8.63</td>
+      </tr>
+      </tr>
+      <tr>
+        <td align="left">Dolphin-small</td><td align="center">372</td><td align="center">59.20</td><td align="center">7.38</td><td align="center">39.69</td><td align="center">51.29</td><td align="center">26.39</td><td align="center">7.21</td><td align="center">9.68</td><td align="center">32.32</td><td align="center">58.20</td>
+      </tr>
+      <tr>
+        <td align="left">TeleASR</td><td align="center">700</td><td align="center">37.18</td><td align="center">7.27</td><td align="center">7.02</td><td align="center"><ins>7.88</ins></td><td align="center">6.25</td><td align="center">8.02</td><td align="center"><b>5.98</b></td><td align="center">6.23</td><td align="center">11.33</td>
+      </tr>
+      <tr>
+        <td align="left">Whisper-medium</td><td align="center">769</td><td align="center">75.50</td><td align="center">68.69</td><td align="center">59.44</td><td align="center">62.50</td><td align="center">62.31</td><td align="center">64.41</td><td align="center">80.41</td><td align="center">80.82</td><td align="center">50.96</td>
+      </tr>
+      <tr>
+        <td align="left"><b>Whisper-m-Yue⭐</b></td><td align="center">769</td><td align="center">18.69</td><td align="center">6.86</td><td align="center"><ins>6.86</ins></td><td align="center">11.03</td><td align="center">5.49</td><td align="center"><ins>4.70</ins></td><td align="center">8.51</td><td align="center"><ins>5.05</ins></td><td align="center"><ins>8.05</ins></td>
+      </tr>
+    
+      <tr>
+        <td align="left">FireRedASR-AED-L</td><td align="center">1100</td><td align="center">73.70</td><td align="center">18.72</td><td align="center">43.93</td><td align="center">43.33</td><td align="center">34.53</td><td align="center">48.05</td><td align="center">49.99</td><td align="center">55.37</td><td align="center">50.26</td>
+      </tr>
+      <tr>
+        <td align="left">Whisper-large-v3</td><td align="center">1550</td><td align="center">45.09</td><td align="center">15.46</td><td align="center">12.85</td><td align="center">16.36</td><td align="center">14.63</td><td align="center">17.84</td><td align="center">20.70</td><td align="center">12.95</td><td align="center">26.86</td>
+      </tr>
+    
+      <tr><td align="left" colspan="11"><b>w/ LLM</b></td></tr>
+    
+      <tr>
+        <td align="left">Qwen2.5-Omni-3B</td><td align="center">3000</td><td align="center">72.01</td><td align="center">7.49</td><td align="center">12.59</td><td align="center">11.75</td><td align="center">38.91</td><td align="center">10.59</td><td align="center">25.78</td><td align="center">67.95</td><td align="center">88.46</td>
+      </tr>
+      <tr>
+        <td align="left">Kimi-Audio</td><td align="center">7000</td><td align="center">68.65</td><td align="center">24.34</td><td align="center">40.90</td><td align="center">38.72</td><td align="center">30.72</td><td align="center">44.29</td><td align="center">45.54</td><td align="center">50.86</td><td align="center">33.49</td>
+      </tr>
+      <tr>
+        <td align="left">FireRedASR-LLM-L</td><td align="center">8300</td><td align="center">73.70</td><td align="center">18.72</td><td align="center">43.93</td><td align="center">43.33</td><td align="center">34.53</td><td align="center">48.05</td><td align="center">49.99</td><td align="center">49.87</td><td align="center">45.92</td>
+      </tr>
+      <tr>
+        <td align="left"><b>Conformer-LLM-Yue⭐</b></td><td align="center">4200</td><td align="center"><ins>17.22</ins></td><td align="center"><b>6.21</b></td><td align="center"><b>6.23</b></td><td align="center">9.52</td><td align="center"><b>4.35</b></td><td align="center"><b>4.57</b></td><td align="center">6.98</td><td align="center"><b>4.73</b></td><td align="center"><b>7.91</b></td>
+      </tr>
+    </table>
+
+
+    <h2 style="text-align: center;">TTS Demo<a name="Comparison"></a></h2>
+      <table style="margin: 0 auto; width: 95%; border-collapse: collapse;">
+        <thead>
+          <tr id="header-row">
+            <th>Text</th>
+            <!-- JS会插入系统名 -->
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="7">Loading...</td></tr>
+        </tbody>
+      </table>
+    <h2 style="text-align: center; margin-top: 40px;">TTS System Performance Comparison</h2>
+<h3 style="text-align: center;">Evaluation Overview</h3>
+<ul style="text-align: justify; width: 100%; margin: 0 0 20px 0; list-style: disc;">
+  <li>The table below presents both objective and subjective evaluation results of different TTS systems on the WSYue-TTS-eval benchmark. Objective metrics include Mixed Error Rate (MER) and speaker similarity (SIM) on both the Base and Coverage test sets. Subjective metrics include UTMOSv2, Intelligibility MOS (I-MOS), Speaker Similarity MOS (S-MOS), and Audio Naturalness MOS (A-MOS).</li>
+  <li>Llasa-1B-Yue is our model trained on large-scale Cantonese data and achieves the best performance on most metrics.</li>
+</ul>
+
+<table style="margin: 0 auto; display: table; width: 95%; border-collapse: collapse; text-align: center; font-size: 1em;">
+  <caption style="caption-side: bottom; text-align: center; font-size: 1em; padding: 8px;">
+    Objective and subjective evaluation results of different TTS systems on the WSYue-TTS-eval benchmark.
+  </caption>
+  <thead>
+    <tr>
+      <th rowspan="2" style="border:1px solid #ccc;">Model</th>
+      <th colspan="2" style="border:1px solid #ccc;">Base</th>
+      <th colspan="2" style="border:1px solid #ccc;">Coverage</th>
+      <th rowspan="2" style="border:1px solid #ccc;">UTMOSv2</th>
+      <th rowspan="2" style="border:1px solid #ccc;">I-MOS</th>
+      <th rowspan="2" style="border:1px solid #ccc;">S-MOS</th>
+      <th rowspan="2" style="border:1px solid #ccc;">A-MOS</th>
+    </tr>
+    <tr>
+      <th style="border:1px solid #ccc;">MER (%)</th>
+      <th style="border:1px solid #ccc;">SIM</th>
+      <th style="border:1px solid #ccc;">MER (%)</th>
+      <th style="border:1px solid #ccc;">SIM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border:1px solid #ccc;">Llasa-1B</td>
+      <td style="border:1px solid #ccc;">53.31</td>
+      <td style="border:1px solid #ccc;">0.732</td>
+      <td style="border:1px solid #ccc;">43.68</td>
+      <td style="border:1px solid #ccc;">0.754</td>
+      <td style="border:1px solid #ccc;">2.360</td>
+      <td style="border:1px solid #ccc;">2.60 &plusmn; 1.01</td>
+      <td style="border:1px solid #ccc;">3.05 &plusmn; 0.87</td>
+      <td style="border:1px solid #ccc;">2.32 &plusmn; 0.98</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;">Step-Audio-TTS-3B</td>
+      <td style="border:1px solid #ccc;">27.79</td>
+      <td style="border:1px solid #ccc;">0.762</td>
+      <td style="border:1px solid #ccc;">24.25</td>
+      <td style="border:1px solid #ccc;">0.781</td>
+      <td style="border:1px solid #ccc;">2.496</td>
+      <td style="border:1px solid #ccc;">3.22 &plusmn; 0.70</td>
+      <td style="border:1px solid #ccc;">3.14 &plusmn; 0.58</td>
+      <td style="border:1px solid #ccc;">2.82 &plusmn; 0.69</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;">CosyVoice2</td>
+      <td style="border:1px solid #ccc;">14.38</td>
+      <td style="border:1px solid #ccc;"><b>0.812</b></td>
+      <td style="border:1px solid #ccc;">13.74</td>
+      <td style="border:1px solid #ccc;"><b>0.826</b></td>
+      <td style="border:1px solid #ccc;"><b>2.989</b></td>
+      <td style="border:1px solid #ccc;">3.72 &plusmn; 0.50</td>
+      <td style="border:1px solid #ccc;">3.52 &plusmn; 0.36</td>
+      <td style="border:1px solid #ccc;">3.22 &plusmn; 0.60</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;">Edge-TTS<sup>&dagger;</sup></td>
+      <td style="border:1px solid #ccc;">8.30</td>
+      <td style="border:1px solid #ccc;">-</td>
+      <td style="border:1px solid #ccc;">9.27</td>
+      <td style="border:1px solid #ccc;">-</td>
+      <td style="border:1px solid #ccc;">2.997</td>
+      <td style="border:1px solid #ccc;">4.12 &plusmn; 0.28</td>
+      <td style="border:1px solid #ccc;">-</td>
+      <td style="border:1px solid #ccc;">3.48 &plusmn; 0.56</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;"><b>Llasa-1B-Yue</b></td>
+      <td style="border:1px solid #ccc;"><b>10.89</b></td>
+      <td style="border:1px solid #ccc;">0.762</td>
+      <td style="border:1px solid #ccc;"><b>12.78</b></td>
+      <td style="border:1px solid #ccc;">0.772</td>
+      <td style="border:1px solid #ccc;">2.696</td>
+      <td style="border:1px solid #ccc;"><b>4.30 &plusmn; 0.23</b></td>
+      <td style="border:1px solid #ccc;"><b>4.11 &plusmn; 0.37</b></td>
+      <td style="border:1px solid #ccc;"><b>4.34 &plusmn; 0.34</b></td>
+    </tr>
+  </tbody>
+</table>
+<!-- <div style="max-width: 900px; margin: 0 auto; font-size: 0.95em; color: #555; text-align: left;">
+  <sup>&dagger;</sup> Commercial system with a single fixed speaker; speaker similarity is not evaluated.
+</div> -->
+<div style="font-size: 0.90em; color: #888; text-align: left; margin-top: 8px; margin-left: 2.5%; font-style: italic; max-width: 95%;">
+  <sup>&dagger;</sup> Commercial system with a single fixed speaker; speaker similarity is not evaluated.
+</div>
+</section>
+</body>
+
+<script>
+  // 配置
+  const systems = ["ref", "Llasa-1B", "StepAudio", "Cosyvoice2", "EdgeTTS", "WSYue_TTS"];
+  const systemDisplayNames = {
+    "ref": "Reference",
+    "Llasa-1B": "Llasa-1B",
+    "WSYue_TTS": "Llasa-1B-Yue",
+    "Cosyvoice2": "Cosyvoice2",
+    "StepAudio": "Step-Audio-TTS-3B",
+    "EdgeTTS": "Edge-TTS",
+  };
+
+  // 动态生成表头
+  const headerRow = document.getElementById('header-row');
+  systems.forEach(sys => {
+    const th = document.createElement('th');
+    th.textContent = systemDisplayNames[sys] || sys;
+    headerRow.appendChild(th);
+  });
+
+  // 读取并解析text.txt
+  fetch('raw/TTS_samples/text.txt')
+    .then(response => response.text())
+    .then(text => {
+      const lines = text.trim().split('\n');
+      const data = lines.map(line => {
+        const [filename, content] = line.split('|');
+        return { filename: filename.trim(), text: content.trim() };
+      });
+
+      // 生成表格内容
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = ""; // 清空Loading
+      data.forEach(item => {
+        const tr = document.createElement('tr');
+        // 文本列
+        const tdText = document.createElement('td');
+        tdText.className = "text-cell";
+        tdText.textContent = item.text;
+        tr.appendChild(tdText);
+
+        // 各系统音频
+        systems.forEach(sys => {
+          const td = document.createElement('td');
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.style.width = "180px";
+          audio.src = `raw/TTS_samples/${sys}/${item.filename}.wav`;
+          td.appendChild(audio);
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    })
+    .catch(err => {
+      document.getElementById('tbody').innerHTML = `<tr><td colspan="${systems.length+1}">Failed to load text.txt: ${err}</td></tr>`;
+    });
+</script>
+</html>
+
+
+
+
+<!-- <script type="" text/javascript>
+  window.onload = function () {
+    let scenes = ["aishell3"]
+    let speakers = ["female", "male"]
+    let genders = ["female", "male"]
+    let models = ["DualVC2", "VQMIVC", "VQMIVC-streaming", "DualVC3-full", "DualVC3-standalone"]
+    let all_samples = [["SSB00430070.wav", "SSB02460443.wav", "SSB03230482.wav", "SSB03410353.wav", "SSB03750317.wav", "SSB04700097.wav", "SSB05900051.wav", "SSB07100255.wav", "SSB07100388.wav", "SSB08170086.wav",], 
+                    ["SSB00430070.wav", "SSB02460443.wav", "SSB03230482.wav", "SSB03410353.wav", "SSB03750317.wav", "SSB04700097.wav", "SSB05900051.wav", "SSB07100255.wav", "SSB07100388.wav", "SSB08170086.wav",]]
+    let sample_data = `
+        <tr>
+          <td style="text-align: center; width: 150px;" rowspan=2><strong>Target Speaker<strong></td>
+          <td style="text-align: center; width: 150px;" rowspan=2><strong>Source Speech<strong></td>
+          <td style="text-align: center; width: 150px;" colspan=5><strong>Method<strong></td>
+        </tr>
+        <tr>
+        `
+    for (const id in models) {
+      model = models[id]
+      if (model == 'Baseline') {
+        model = 'IBF-VC'
+      }
+      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1><strong>' + model + '<strong></td>'
+    }
+    sample_data += "</tr>"
+    console.log(sample_data)
+    
+    for (let x in scenes) {
+      let scene = scenes[x]
+      let scene_data = ""
+      scene_data += '<tr>'
+      //scene_data += '<td style="text-align: center; width: 150px;" rowspan=' + 8 + '><strong>' + scene + ' Source' + '<strong></td>'
+      let samples = all_samples[x]
+      console.log(scene, samples)
+      for (let y in speakers) {
+        speaker = speakers[y]
+        gender = genders[y]
+        scene_data += '<td style="text-align: center; width: 150px;" rowspan=10>' + gender + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"></td>'
+        for (let z in samples) {
+          if (z != 0) {
+            scene_data += '<tr>'
+          }
+          let sample = samples[z]
+          scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
+          for (let w in models) {
+            let model = models[w]
+            scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/' + model + '/' + speaker + '/' + sample + '"></audio></td>'
+          }
+          scene_data += '</tr>'
+        }
+      }
+      sample_data += scene_data
+    }
+    document.getElementById('tbody').innerHTML = sample_data
+  }
+</script> -->
