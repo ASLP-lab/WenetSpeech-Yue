@@ -7,7 +7,7 @@ Longhao Li, Zhao Guo, Hongjie Chen, Yuhang Dai, Ziyu Zhang, Hongfei Xue, Tianlun
 🤗 <a href="https://huggingface.co/collections/ASLP-lab/wenetspeech-yue-68b690d287cde88389e5dba1">HuggingFace</a>
 <br>
 🖥️ <a href="https://huggingface.co/spaces/ASLP-lab/WenetSpeech-Yue">HuggingFace Space</a> &nbsp&nbsp | &nbsp&nbsp 
-🎤 <a href="https://llh666521.github.io/WenetSpeech-Yue/">Demo Page</a> &nbsp&nbsp | &nbsp&nbsp 
+🎤 <a href="https://aslp-lab.github.io/WenetSpeech-Yue/">Demo Page</a> &nbsp&nbsp | &nbsp&nbsp 
 💬 <a href="https://github.com/llh666521/WenetSpeech-Yue?tab=readme-ov-file#contact">Contact Us</a>
 </p>
 
