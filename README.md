@@ -216,7 +216,15 @@ To further enhance transcription accuracy, we leverage [Qwen3-4B](https://huggin
 ## Citation
 Please cite our paper if you find this work useful:
 ```
-
+@misc{li2025wenetspeechyuelargescalecantonesespeech,
+      title={WenetSpeech-Yue: A Large-scale Cantonese Speech Corpus with Multi-dimensional Annotation}, 
+      author={Longhao Li and Zhao Guo and Hongjie Chen and Yuhang Dai and Ziyu Zhang and Hongfei Xue and Tianlun Zuo and Chengyou Wang and Shuiyuan Wang and Jie Li and Xin Xu and Hui Bu and Binbin Zhang and Ruibin Yuan and Ziya Zhou and Wei Xue and Lei Xie},
+      year={2025},
+      eprint={2509.03959},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD},
+      url={https://arxiv.org/abs/2509.03959}, 
+}
 ```
 
 ## Contact
