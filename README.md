@@ -1,5 +1,5 @@
 # WenetSpeech-Yue: A Large-scale Cantonese Speech Corpus with Multi-dimensional Annotation
-Longhao Li, Zhao Guo, Hongjie Chen, Yuhang Dai, Ziyu Zhang, Hongfei Xue, Tianlun Zuo, Chengyou Wang, Shuiyuan Wang, Xin Xu, Hui Bu, Jie Li, Jian Kang, Binbin Zhang, Ruibin Yuan, Ziya Zhou, Wei Xue, Lei Xie
+Longhao Li*, Zhao Guo*, Hongjie Chen, Yuhang Dai, Ziyu Zhang, Hongfei Xue, Tianlun Zuo, Chengyou Wang, Shuiyuan Wang, Xin Xu, Hui Bu, Jie Li, Jian Kang, Binbin Zhang, Ruibin Yuan, Ziya Zhou, Wei Xue, Lei Xie
 
 <p align="center">
 📑 <a href="https://arxiv.org/abs/2509.03959">Paper</a> &nbsp&nbsp | &nbsp&nbsp 
