@@ -164,7 +164,6 @@ python wenet/bin/recognize.py \
 ### SenseVoice_Small_Yue
 ```
 from funasr import AutoModel
-from funasr.utils.postprocess_utils import rich_transcription_postprocess
 
 model_dir = "sensevoice_small_yue"
 
