@@ -21,7 +21,33 @@ WenetSpeech-Pipe Overview:
 * The WenetSpeech-Yue dataset is available at [WenetSpeech-Yue](https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue).
 * The WSYue-eval benchmark is available at [WSYue-ASR-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval) and [WSYue-TTS-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval).
 * The ASR models are available at [WSYue-ASR](https://huggingface.co/ASLP-lab/WSYue-ASR).
-* The TTS models are available at [WSYue-TTS-Cosyvoice2](https://huggingface.co/ASLP-lab/WSYue-TTS-Cosyvoice2) (base model) and [WSYue-TTS-Cosyvoice2-zjg](https://huggingface.co/ASLP-lab/WSYue-TTS-Cosyvoice2-zjg) (premium-speaker fine-tuned model).
+* The TTS models are available at [WSYue-TTS-Cosyvoice2](https://huggingface.co/ASLP-lab/WSYue-TTS-Cosyvoice2) (base model) and [WSYue-TTS-Cosyvoice2-zjg](https://huggingface.co/ASLP-lab/WSYue-TTS-Cosyvoice2-zjg) (Zoeng Jyut Gaai Story-telling speaker fine-tuned model).
+
+
+
+## Dataset
+### WenetSpeech-Yue Overview
+* Contains 21,800 hours of large-scale Cantonese speech corpus with rich annotations, the largest open-source resource for Cantonese speech research.
+* Stores metadata in a single JSON file, including audio path, duration, text confidence, speaker identity, SNR, DNSMOS, age, gender, and character-level timestamps. Additional metadata tags may be added in the future.
+* Covers ten domains: Storytelling, Entertainment, Drama, Culture, Vlog, Commentary, Education, Podcast, News, and Others.
+<div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/data_distribution.png" /></div>
+
+## Benchmark
+To address the unique linguistic characteristics of Cantonese, we propose WSYue-eval, a comprehensive benchmark encompassing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) tasks.
+
+### ASR Benchmark
+We introduce WSYue-ASR-eval, a test set developed for Automatic Speech Recognition (ASR) as a key task in speech understanding. It features **multi-round manual annotations** including text transcripts, emotion, age, and gender labels. The set is divided into Short and Long subsets by audio duration to enable comprehensive evaluation across speech lengths. WSYue-ASR-eval also covers diverse real-world Cantonese scenarios, including code-switching and multi-domain conditions.
+
+| Set   | Duration | Speakers | Hours |
+|-------|----------|----------|-------|
+| Short | 0–10s    | 2861     | 9.46  |
+| Long  | 10–30s   | 838      | 1.97  |
+
+### TTS Benchmark
+We introduce WSYue-TTS-eval, a zero-shot Cantonese TTS benchmark with two subsets:
+- Base: Contains 1,000 samples from Common Voice for evaluating real-world performance.
+- Coverage: Combines manually curated and LLM-generated texts spanning multiple domains (e.g., daily life, news, entertainment, poetry) and incorporates diverse linguistic phenomena including polyphonic characters, tone sandhi, code-switching, proper nouns, and numerals.
+
 
 ## ASR Leaderboard
 <table border="0" cellspacing="0" cellpadding="6" style="border-collapse:collapse;">
@@ -92,33 +118,6 @@ WenetSpeech-Pipe Overview:
     <td align="left"><b>Conformer-LLM-Yue⭐</b></td><td align="center">4200</td><td align="center"><ins>17.22</ins></td><td align="center"><b>6.21</b></td><td align="center"><b>6.23</b></td><td align="center">9.52</td><td align="center"><b>4.35</b></td><td align="center"><b>4.57</b></td><td align="center">6.98</td><td align="center"><b>4.73</b></td><td align="center"><b>7.91</b></td>
   </tr>
 </table>
-
-
-
-
-
-## Dataset
-### WenetSpeech-Yue Overview
-* Contains 21,800 hours of large-scale Cantonese speech corpus with rich annotations, the largest open-source resource for Cantonese speech research.
-* Stores metadata in a single JSON file, including audio path, duration, text confidence, speaker identity, SNR, DNSMOS, age, gender, and character-level timestamps. Additional metadata tags may be added in the future.
-* Covers ten domains: Storytelling, Entertainment, Drama, Culture, Vlog, Commentary, Education, Podcast, News, and Others.
-<div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/data_distribution.png" /></div>
-
-## Benchmark
-To address the unique linguistic characteristics of Cantonese, we propose WSYue-eval, a comprehensive benchmark encompassing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) tasks.
-
-### ASR Benchmark
-We introduce WSYue-ASR-eval, a test set developed for Automatic Speech Recognition (ASR) as a key task in speech understanding. It features **multi-round manual annotations** including text transcripts, emotion, age, and gender labels. The set is divided into Short and Long subsets by audio duration to enable comprehensive evaluation across speech lengths. WSYue-ASR-eval also covers diverse real-world Cantonese scenarios, including code-switching and multi-domain conditions.
-
-| Set   | Duration | Speakers | Hours |
-|-------|----------|----------|-------|
-| Short | 0–10s    | 2861     | 9.46  |
-| Long  | 10–30s   | 838      | 1.97  |
-
-### TTS Benchmark
-We introduce WSYue-TTS-eval, a zero-shot Cantonese TTS benchmark with two subsets:
-- Base: Contains 1,000 samples from Common Voice for evaluating real-world performance.
-- Coverage: Combines manually curated and LLM-generated texts spanning multiple domains (e.g., daily life, news, entertainment, poetry) and incorporates diverse linguistic phenomena including polyphonic characters, tone sandhi, code-switching, proper nouns, and numerals.
 
 ## ASR Inference
 ### U2pp_Conformer_Yue
