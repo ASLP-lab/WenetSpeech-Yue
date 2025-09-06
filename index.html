@@ -62,18 +62,17 @@
     </p>
 
     <br><br>
-    <div style="text-align:center; margin-top:10px;">
+    <!-- 导航栏：居中、自适应宽度、半透明 + 跟随页面移动 -->
+    <div style="text-align:center; margin-top:10px; position: sticky; top: 10px; z-index: 1000;">
       <nav style="
-        background: rgba(0, 0, 0, 0.5); 
-        padding: 12px 24px; 
-        position: sticky; 
-        top: 0; 
-        z-index: 1000; 
-        border-radius: 8px; 
-        display: inline-block;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 12px 24px;
+        display: inline-block;      /* 宽度随内容 */
+        border-radius: 10px;
+        backdrop-filter: blur(6px); /* 毛玻璃，支持的浏览器会更好看 */
       ">
         <a href="#abstract" class="nav-link">Abstract</a>
-        <a href="#video" class="nav-link">Promotional Videos</a>
+        <a href="#videos" class="nav-link">Promotional Videos</a>
         <a href="#pipeline" class="nav-link">WenetSpeech-Pipe</a>
         <a href="#dataset" class="nav-link">WenetSpeech-Yue</a>
         <a href="#asr" class="nav-link">ASR Leaderboard</a>
@@ -83,18 +82,26 @@
     </div>
     
     <style>
+      /* 链接样式：保持原字号，hover 变蓝+下划线 */
       .nav-link {
         color: white;
         margin: 0 15px;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 16px;             /* 你原来的大小 */
         transition: color 0.2s, text-decoration 0.2s;
       }
       .nav-link:hover {
-        color: #ffffff;              
-        text-decoration: underline; 
+        color: #66ccff;              /* 浅蓝色 hover */
+        text-decoration: underline;
+      }
+    
+      /* 解决锚点跳转被 sticky 导航遮住：给锚点目标留出滚动偏移 */
+      /* 给所有带 id 的标题或区块一个 scroll-margin-top（按导航高度调整） */
+      h1[id], h2[id], h3[id], section[id], div[id] {
+        scroll-margin-top: 84px;     /* 导航+外边距大约高度，可按需要微调 */
       }
     </style>
+
 
     <h2 id="abstract" style="text-align: center;">Abstract<a name="abstract"></a></h2>
     <p style="text-align: justify;">The development of speech understanding and generation has been significantly accelerated by the availability of large-scale, high-quality speech datasets. Among these, ASR and TTS are regarded as the most established and fundamental tasks. However, for Cantonese (Yue Chinese), spoken by approximately 84.9 million native speakers worldwide, limited annotated resources have hindered progress and resulted in suboptimal ASR and TTS performance. To address this challenge, we propose WenetSpeech-Pipe, an integrated pipeline for building large-scale speech corpus with multi-dimensional annotation tailored for speech understanding and generation. It comprises six modules: Audio Collection, Speaker Attributes Annotation, Speech Quality Annotation, Automatic Speech Recognition, Text Postprocessing and Recognizer Output Voting, enabling rich and high-quality annotations. Based on this pipeline, we release WenetSpeech-Yue, the first large-scale Cantonese speech corpus with multi-dimensional annotation for ASR and TTS, covering 21,800 hours across 10 domains with annotations including ASR transcription, text confidence, speaker identity, age, gender, speech quality scores, among other annotations. We also release WSYue-eval, a comprehensive Cantonese benchmark with two components: WSYue-ASR-eval, a manually annotated set for evaluating ASR on short and long utterances, code-switching, and diverse acoustic conditions, and WSYue-TTS-eval, with base and coverage subsets for standard and generalization testing. Experimental results show that models trained on WenetSpeech-Yue achieve competitive results against state-of-the-art (SOTA) Cantonese ASR and TTS systems, including commercial and LLM-based models, highlighting the value of our dataset and pipeline. The dataset, benchmark, and the ASR and TTS models built upon WenetSpeech-Yue will be open-sourced. Demos can be found in the supplementary material.</p>
