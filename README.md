@@ -14,8 +14,7 @@ Longhao Li*, Zhao Guo*, Hongjie Chen, Yuhang Dai, Ziyu Zhang, Hongfei Xue, Tianl
 
 This is the official repository 👑 for the WenetSpeech-Yue dataset and the source code for WenetSpeech-Pipe speech data preprocessing pipeline.
 
-WenetSpeech-Pipe Overview:
-<div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/wenetspeech_pipe.svg" /></div>
+<div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/wenetspeech_yue.svg" /></div>
 
 ## Download
 * The WenetSpeech-Yue dataset is available at [WenetSpeech-Yue](https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue).
@@ -180,6 +179,10 @@ res = model.generate(
 ```
 
 ## WenetSpeech-Pipe
+
+WenetSpeech-Pipe Overview:
+<div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/wenetspeech_pipe.svg" /></div>
+
 ### Audio Collection
 WenetSpeech-Pipe collects large-scale, in-the-wild speech recordings across diverse domains such as storytelling, drama, commentary, vlogs, food, entertainment, news, and education. These long recordings are segmented into short clips with VAD, yielding utterance-level data for transcription and quality evaluation.
 <div align="center"><img width="600px" src="https://github.com/llh666521/WenetSpeech-Yue/blob/main/figs/domain_distribution.svg" /></div>
