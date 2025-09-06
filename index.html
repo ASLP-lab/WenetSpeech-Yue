@@ -71,7 +71,7 @@
         backdrop-filter: blur(6px); /* 毛玻璃，支持的浏览器会更好看 */
       ">
         <a href="#abstract" class="nav-link">Abstract</a>
-        <a href="#videos" class="nav-link">Promotional Videos</a>
+        <a href="#video" class="nav-link">Promotional Videos</a>
         <a href="#pipeline" class="nav-link">WenetSpeech-Pipe</a>
         <a href="#dataset" class="nav-link">WenetSpeech-Yue</a>
         <a href="#asr" class="nav-link">ASR Leaderboard</a>
@@ -92,12 +92,6 @@
       .nav-link:hover {
         color: #66ccff;              /* 浅蓝色 hover */
         text-decoration: underline;
-      }
-    
-      /* 解决锚点跳转被 sticky 导航遮住：给锚点目标留出滚动偏移 */
-      /* 给所有带 id 的标题或区块一个 scroll-margin-top（按导航高度调整） */
-      h1[id], h2[id], h3[id], section[id], div[id] {
-        scroll-margin-top: 84px;     /* 导航+外边距大约高度，可按需要微调 */
       }
     </style>
 
