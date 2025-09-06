@@ -1,5 +1,25 @@
 # WenetSpeech-Yue: A Large-scale Cantonese Speech Corpus with Multi-dimensional Annotation
-Longhao Li*, Zhao Guo*, Hongjie Chen, Yuhang Dai, Ziyu Zhang, Hongfei Xue, Tianlun Zuo, Chengyou Wang, Shuiyuan Wang, Xin Xu, Hui Bu, Jie Li, Jian Kang, Binbin Zhang, Ruibin Yuan, Ziya Zhou, Wei Xue, Lei Xie
+
+<div style="text-align:center; line-height:1.6; font-family:Arial, sans-serif;">
+
+  <p>
+    Longhao Li<sup>1</sup>*, Zhao Guo<sup>1</sup>*, Hongjie Chen<sup>2</sup>, 
+    Yuhang Dai<sup>1</sup>, Ziyu Zhang<sup>1</sup>, Hongfei Xue<sup>1</sup>, 
+    Tianlun Zuo<sup>1</sup>, Chengyou Wang<sup>1</sup>, Shuiyuan Wang<sup>1</sup>, 
+    Xin Xu<sup>3</sup>, Hui Bu<sup>3</sup>, Jie Li<sup>2</sup>, Jian Kang<sup>2</sup>, 
+    Binbin Zhang<sup>4</sup>, Ruibin Yuan<sup>5</sup>, Ziya Zhou<sup>5</sup>, 
+    Wei Xue<sup>5</sup>, Lei Xie<sup>1</sup>
+  </p>
+
+  <p>
+    <sup>1</sup> Audio, Speech and Language Processing Group (ASLP@NPU), Northwestern Polytechnical University <br>
+    <sup>2</sup> Institute of Artificial Intelligence (TeleAI), China Telecom <br>
+    <sup>3</sup> Beijing AISHELL Technology Co., Ltd. <br>
+    <sup>4</sup> WeNet Open Source Community <br>
+    <sup>5</sup> Hong Kong University of Science and Technology
+  </p>
+
+</div>
 
 <p align="center">
 📑 <a href="https://arxiv.org/abs/2509.03959">Paper</a> &nbsp&nbsp | &nbsp&nbsp 
