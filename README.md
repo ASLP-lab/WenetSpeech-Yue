@@ -316,6 +316,7 @@ If you are interested in leaving a message to our research team, feel free to em
 <p align="center">
 <img src="https://github.com/ASLP-lab/WenetSpeech-Yue/raw/main/figs/wechat.jpg" width="300" alt="WeChat Group QR Code"/>
 <em>Scan to join our WeChat discussion group</em>
+<br>
 </p>
 <p align="center">
     <img src="./figs/npu@aslp.jpeg" width="500"/>
