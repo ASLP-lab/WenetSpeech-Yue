@@ -35,7 +35,7 @@ This is the official repository 👑 for the WenetSpeech-Yue dataset and the sou
 
 ## Download
 * The WenetSpeech-Yue dataset is available at [WenetSpeech-Yue](https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue).
-* The WSYue-eval benchmark is available at [WSYue-ASR-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval) and [WSYue-TTS-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval).
+* The WSYue-eval benchmark is available at [WSYue-ASR-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval) for ASR and [WSYue-TTS-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval) for TTS.
 * The ASR models are available at [WSYue-ASR](https://huggingface.co/ASLP-lab/WSYue-ASR).
 * The TTS models are available at [Cosyvoice2-Yue](https://huggingface.co/ASLP-lab/Cosyvoice2-Yue) (base model) and [Cosyvoice2-Yue-ZoengJyutGaai](https://huggingface.co/ASLP-lab/Cosyvoice2-Yue-ZoengJyutGaai) (Zoeng Jyut Gaai Story-telling speaker fine-tuned model).
 
