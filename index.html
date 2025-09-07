@@ -973,6 +973,9 @@
       <tr><td colspan="8">Loading...</td></tr>
     </tbody>
   </table>
+<p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">
+  All synthesized samples are taken from the <b>WSYue-TTS-eval</b> test set.
+</p>
 
 <br>
 
@@ -1016,7 +1019,7 @@
         </audio>
       </td>
       <!-- 文本2：可根据实际内容修改 -->
-      <td style="border: 1px solid #ccc; padding: 12px; text-align: left;">严嵩，明朝历史上唯一一个廿年牢牢掌控住内阁嘅首辅。佢喺朝廷党羽遍布，权势滔天，但系就算最后家产畀人抄晒、个仔畀人斩咗头，佢都能够独身保命，一直安然无恙，直到寿终正寝。</td>
+      <td style="border: 1px solid #ccc; padding: 12px; text-align: left;">严嵩，明朝历史上唯一一个廿年牢牢掌控住内阁嘅首辅。明史认定佢系奸臣之首，佢喺朝廷党羽遍布，权势滔天，但系就算最后家产畀人抄晒、个仔畀人斩咗头，佢都能够独身保命，一直安然无恙，直到寿终正寝。</td>
       <!-- 模型2合成音频：引用9月7日.WAV -->
       <td style="border: 1px solid #ccc; padding: 12px;">
         <audio controls style="width: 90%; max-width: 250px;">
@@ -1041,7 +1044,7 @@
 
 <script>
   // 配置
-  const systems = ["ref", "Llasa-1B", "StepAudio", "Cosyvoice2", "EdgeTTS", "WSYue_TTS", "CosyVoice2-Yue"];
+  const systems = ["ref", "StepAudio", "EdgeTTS", "Llasa-1B", "WSYue_TTS", "Cosyvoice2", "CosyVoice2-Yue"];
   const systemDisplayNames = {
     "ref": "Reference",
     "Llasa-1B": "Llasa-1B",
@@ -1052,11 +1055,20 @@
     "CosyVoice2-Yue": "CosyVoice2-Yue",
   };
 
+  // 特殊高亮的系统
+  const highlightSystems = ["WSYue_TTS", "CosyVoice2-Yue"];
+
   // 动态生成表头
   const headerRow = document.getElementById('header-row');
   systems.forEach(sys => {
     const th = document.createElement('th');
     th.textContent = systemDisplayNames[sys] || sys;
+    if (highlightSystems.includes(sys)) {
+      th.style.backgroundColor = "#ffe0b2"; // 醒目的橙色背景
+      th.style.fontWeight = "bold";
+    } else {
+      th.style.backgroundColor = "#f9f9f9";
+    }
     headerRow.appendChild(th);
   });
 
@@ -1079,11 +1091,15 @@
         const tdText = document.createElement('td');
         tdText.className = "text-cell";
         tdText.textContent = item.text;
+        tdText.style.backgroundColor = "#f0f0f0";
         tr.appendChild(tdText);
 
         // 各系统音频
         systems.forEach(sys => {
           const td = document.createElement('td');
+          if (highlightSystems.includes(sys)) {
+            td.style.backgroundColor = "#fff3e0"; // 浅橙色，突出显示
+          }
           const audio = document.createElement('audio');
           audio.controls = true;
           audio.style.width = "180px";
