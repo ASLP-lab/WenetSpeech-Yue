@@ -1039,7 +1039,65 @@
 </section>
 </body>
 
+<script>
+  // 配置
+  const systems = ["ref", "Llasa-1B", "StepAudio", "Cosyvoice2", "EdgeTTS", "WSYue_TTS", "CosyVoice2-Yue"];
+  const systemDisplayNames = {
+    "ref": "Reference",
+    "Llasa-1B": "Llasa-1B",
+    "WSYue_TTS": "Llasa-1B-Yue",
+    "Cosyvoice2": "Cosyvoice2",
+    "StepAudio": "Step-Audio-TTS-3B",
+    "EdgeTTS": "Edge-TTS",
+    "CosyVoice2-Yue": "CosyVoice2-Yue",
+  };
 
+  // 动态生成表头
+  const headerRow = document.getElementById('header-row');
+  systems.forEach(sys => {
+    const th = document.createElement('th');
+    th.textContent = systemDisplayNames[sys] || sys;
+    headerRow.appendChild(th);
+  });
+
+  // 读取并解析text.txt
+  fetch('raw/TTS_samples/text.txt')
+    .then(response => response.text())
+    .then(text => {
+      const lines = text.trim().split('\n');
+      const data = lines.map(line => {
+        const [filename, content] = line.split('|');
+        return { filename: filename.trim(), text: content.trim() };
+      });
+
+      // 生成表格内容
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = ""; // 清空Loading
+      data.forEach(item => {
+        const tr = document.createElement('tr');
+        // 文本列
+        const tdText = document.createElement('td');
+        tdText.className = "text-cell";
+        tdText.textContent = item.text;
+        tr.appendChild(tdText);
+
+        // 各系统音频
+        systems.forEach(sys => {
+          const td = document.createElement('td');
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.style.width = "180px";
+          audio.src = `raw/TTS_samples/${sys}/${item.filename}.wav`;
+          td.appendChild(audio);
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    })
+    .catch(err => {
+      document.getElementById('tbody').innerHTML = `<tr><td colspan="${systems.length+1}">Failed to load text.txt: ${err}</td></tr>`;
+    });
+</script>
 
 <!-- <script type="" text/javascript>
   window.onload = function () {
