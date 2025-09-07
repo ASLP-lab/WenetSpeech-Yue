@@ -851,11 +851,22 @@
     </table>
 
 
-
-<h2 id="tts" style="text-align: center; margin-top: 40px;">TTS Evaluation</h2>
+    <h2 id="tts_demo" style="text-align: center;">TTS Demo<a name="Comparison"></a></h2>
+      <table style="margin: 0 auto; width: 95%; border-collapse: collapse;">
+        <thead>
+          <tr id="header-row">
+            <th>Text</th>
+            <!-- JS会插入系统名 -->
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="7">Loading...</td></tr>
+        </tbody>
+      </table>
+    <h2 id="tts" style="text-align: center; margin-top: 40px;">TTS Evaluation</h2>
 <ul style="text-align: justify; width: 100%; margin: 0 0 20px 0; list-style: disc;">
   <li>The table below presents both objective and subjective evaluation results of different TTS systems on the WSYue-TTS-eval benchmark. Objective metrics include Mixed Error Rate (MER) and speaker similarity (SIM) on both the Base and Coverage test sets. Subjective metrics include UTMOSv2, Intelligibility MOS (I-MOS), Speaker Similarity MOS (S-MOS), and Audio Naturalness MOS (A-MOS).</li>
-  <li>Llasa-1B-Yue and CosyVoice2-Yue is our model trained on large-scale Cantonese data and achieves the best performance on most metrics.</li>
+  <li>Llasa-1B-Yue is our model trained on large-scale Cantonese data and achieves the best performance on most metrics.</li>
 </ul>
 
 <table style="margin: 0 auto; display: table; width: 95%; border-collapse: collapse; text-align: center; font-size: 1em;">
@@ -905,19 +916,19 @@
     <tr>
       <td style="border:1px solid #ccc;">CosyVoice2</td>
       <td style="border:1px solid #ccc;">14.38</td>
-      <td style="border:1px solid #ccc;">0.812</td>
+      <td style="border:1px solid #ccc;"><b>0.812</b></td>
       <td style="border:1px solid #ccc;">13.74</td>
-      <td style="border:1px solid #ccc;">0.826</td>
-      <td style="border:1px solid #ccc;">2.989</td>
+      <td style="border:1px solid #ccc;"><b>0.826</b></td>
+      <td style="border:1px solid #ccc;"><b>2.989</b></td>
       <td style="border:1px solid #ccc;">3.72 &plusmn; 0.50</td>
       <td style="border:1px solid #ccc;">3.52 &plusmn; 0.36</td>
       <td style="border:1px solid #ccc;">3.22 &plusmn; 0.60</td>
     </tr>
     <tr>
       <td style="border:1px solid #ccc;">Edge-TTS<sup>&dagger;</sup></td>
-      <td style="border:1px solid #ccc;"><b>8.30</b></td>
+      <td style="border:1px solid #ccc;">8.30</td>
       <td style="border:1px solid #ccc;">-</td>
-      <td style="border:1px solid #ccc;"><b>9.27</b></td>
+      <td style="border:1px solid #ccc;">9.27</td>
       <td style="border:1px solid #ccc;">-</td>
       <td style="border:1px solid #ccc;">2.997</td>
       <td style="border:1px solid #ccc;">4.12 &plusmn; 0.28</td>
@@ -926,25 +937,25 @@
     </tr>
     <tr>
       <td style="border:1px solid #ccc;"><b>Llasa-1B-Yue</b></td>
-      <td style="border:1px solid #ccc;">10.89</td>
+      <td style="border:1px solid #ccc;"><b>10.89</b></td>
       <td style="border:1px solid #ccc;">0.762</td>
-      <td style="border:1px solid #ccc;">12.78</td>
+      <td style="border:1px solid #ccc;"><b>12.78</b></td>
       <td style="border:1px solid #ccc;">0.772</td>
       <td style="border:1px solid #ccc;">2.696</td>
-      <td style="border:1px solid #ccc;">4.30 &plusmn; 0.23</td>
+      <td style="border:1px solid #ccc;"><b>4.30 &plusmn; 0.23</b></td>
       <td style="border:1px solid #ccc;"><b>4.11 &plusmn; 0.37</b></td>
       <td style="border:1px solid #ccc;"><b>4.34 &plusmn; 0.34</b></td>
     </tr>
     <tr>
       <td style="border:1px solid #ccc;"><b>CosyVoice2-Yue</b></td>
       <td style="border:1px solid #ccc;"><b>10.33</b></td>
-      <td style="border:1px solid #ccc;"><b>0.821</b></td>
+      <td style="border:1px solid #ccc;">0.821</td>
       <td style="border:1px solid #ccc;"><b>9.49</b></td>
-      <td style="border:1px solid #ccc;"><b>0.834</b></td>
-      <td style="border:1px solid #ccc;"><b>3.021</b></td>
+      <td style="border:1px solid #ccc;">0.834</td>
+      <td style="border:1px solid #ccc;"> 3.021</td>
       <td style="border:1px solid #ccc;"><b>4.45 &plusmn; 0.16</b></td>
-      <td style="border:1px solid #ccc;">3.78 &plusmn; 0.53</td>
-      <td style="border:1px solid #ccc;">4.21 &plusmn; 0.27</td>
+      <td style="border:1px solid #ccc;"><b>3.78 &plusmn; 0.53</b></td>
+      <td style="border:1px solid #ccc;"><b>4.21 &plusmn; 0.27</b></td>
     </tr>
   </tbody>
 </table>
@@ -956,21 +967,6 @@
 </div>
 </section>
 </body>
-
-<h2 id="tts_demo" style="text-align: center;">TTS Demo<a name="Comparison"></a></h2>
-<!-- 核心修复：给表格、th、td统一添加边框样式，确保边框显示 -->
-<table style="margin: 0 auto; width: 95%; border-collapse: collapse; border: 1px solid #ddd;">
-  <thead>
-    <tr id="header-row">
-      <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Text</th>
-      <!-- JS会插入系统名 -->
-    </tr>
-  </thead>
-  <tbody id="tbody">
-    <!-- 给Loading行的td也添加边框和内边距，样式统一 -->
-    <tr><td style="border: 1px solid #ddd; padding: 12px; text-align: center;" colspan="8">Loading...</td></tr>
-  </tbody>
-</table>
 
 <script>
   // 配置
@@ -1033,58 +1029,7 @@
 </script>
 </html>
 
-<!-- 新增模型样例展示表格 -->
-<h2 id="custom_tts_samples" style="text-align: center; margin-top: 40px;">Custom TTS Model Samples</h2>
-<table style="margin: 0 auto; width: 95%; border-collapse: collapse; margin-top: 15px;">
-  <thead>
-    <tr style="background-color: #f5f5f5;">
-      <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Sample Type</th>
-      <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">CosyVoice-Yue (Premium Voice Fine-tuned)</th>
-      <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">CosyVoice2-Yue-ZoengJyutGaai</th>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 10px; font-style: italic;" colspan="3">
-        <strong>Model Notes:</strong><br>
-        - CosyVoice-Yue: A fine-tuned model optimized for premium, high-quality Cantonese voice output.<br>
-        - CosyVoice2-Yue-ZoengJyutGaai: Fine-tuned on <a href="https://canclid.github.io/zoengjyutgaai/" target="_blank" rel="noopener">The Zoeng Jyut Gaai Story-telling Speech Dataset</a> (for Cantonese story-telling style voice).
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- 样例1：可根据实际音频文件修改文件名和文本内容 -->
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; font-weight: 500;">Sample 1: Daily Dialogue</td>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
-        <audio controls style="width: 180px;">
-          <source src="raw/TTS_samples/CosyVoice-Yue/sample1_daily.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </td>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
-        <audio controls style="width: 180px;">
-          <source src="raw/TTS_samples/CosyVoice2-Yue-ZoengJyutGaai/sample1_daily.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </td>
-    </tr>
-    <!-- 样例2：可根据实际音频文件修改文件名和文本内容 -->
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; font-weight: 500;">Sample 2: Story Excerpt</td>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
-        <audio controls style="width: 180px;">
-          <source src="raw/TTS_samples/CosyVoice-Yue/sample2_story.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </td>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
-        <audio controls style="width: 180px;">
-          <source src="raw/TTS_samples/CosyVoice2-Yue-ZoengJyutGaai/sample2_story.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
 
 
 <!-- <script type="" text/javascript>
