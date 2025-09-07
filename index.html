@@ -958,17 +958,19 @@
 </body>
 
 <h2 id="tts_demo" style="text-align: center;">TTS Demo<a name="Comparison"></a></h2>
-  <table style="margin: 0 auto; width: 95%; border-collapse: collapse;">
-    <thead>
-      <tr id="header-row">
-        <th>Text</th>
-        <!-- JS会插入系统名 -->
-      </tr>
-    </thead>
-    <tbody id="tbody">
-      <tr><td colspan="8">Loading...</td></tr>
-    </tbody>
-  </table>
+<!-- 核心修复：给表格、th、td统一添加边框样式，确保边框显示 -->
+<table style="margin: 0 auto; width: 95%; border-collapse: collapse; border: 1px solid #ddd;">
+  <thead>
+    <tr id="header-row">
+      <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Text</th>
+      <!-- JS会插入系统名 -->
+    </tr>
+  </thead>
+  <tbody id="tbody">
+    <!-- 给Loading行的td也添加边框和内边距，样式统一 -->
+    <tr><td style="border: 1px solid #ddd; padding: 12px; text-align: center;" colspan="8">Loading...</td></tr>
+  </tbody>
+</table>
 
 <script>
   // 配置
@@ -1031,7 +1033,58 @@
 </script>
 </html>
 
-
+<!-- 新增模型样例展示表格 -->
+<h2 id="custom_tts_samples" style="text-align: center; margin-top: 40px;">Custom TTS Model Samples</h2>
+<table style="margin: 0 auto; width: 95%; border-collapse: collapse; margin-top: 15px;">
+  <thead>
+    <tr style="background-color: #f5f5f5;">
+      <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Sample Type</th>
+      <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">CosyVoice-Yue (Premium Voice Fine-tuned)</th>
+      <th style="border: 1px solid #ddd; padding: 12px; text-align: center;">CosyVoice2-Yue-ZoengJyutGaai</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 10px; font-style: italic;" colspan="3">
+        <strong>Model Notes:</strong><br>
+        - CosyVoice-Yue: A fine-tuned model optimized for premium, high-quality Cantonese voice output.<br>
+        - CosyVoice2-Yue-ZoengJyutGaai: Fine-tuned on <a href="https://canclid.github.io/zoengjyutgaai/" target="_blank" rel="noopener">The Zoeng Jyut Gaai Story-telling Speech Dataset</a> (for Cantonese story-telling style voice).
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 样例1：可根据实际音频文件修改文件名和文本内容 -->
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 12px; font-weight: 500;">Sample 1: Daily Dialogue</td>
+      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
+        <audio controls style="width: 180px;">
+          <source src="raw/TTS_samples/CosyVoice-Yue/sample1_daily.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
+        <audio controls style="width: 180px;">
+          <source src="raw/TTS_samples/CosyVoice2-Yue-ZoengJyutGaai/sample1_daily.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+    <!-- 样例2：可根据实际音频文件修改文件名和文本内容 -->
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 12px; font-weight: 500;">Sample 2: Story Excerpt</td>
+      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
+        <audio controls style="width: 180px;">
+          <source src="raw/TTS_samples/CosyVoice-Yue/sample2_story.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
+        <audio controls style="width: 180px;">
+          <source src="raw/TTS_samples/CosyVoice2-Yue-ZoengJyutGaai/sample2_story.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
 <!-- <script type="" text/javascript>
