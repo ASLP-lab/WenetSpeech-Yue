@@ -1025,71 +1025,72 @@
     </tr> -->
   </tbody>
 </table>
+
+
+<!-- 新增定制模型对比表格（含Reference列） -->
+<h2 id="custom_tts_comparison" style="text-align: center; margin-top: 60px;">Custom TTS Model Comparison</h2>
+<!-- 模型说明：保持信息前置，与表格风格统一 -->
+<div style="width: 95%; margin: 0 auto 20px; padding: 15px; background-color: #f9f9f9; border-radius: 4px; border-left: 4px solid #4285f4;">
+  <p style="margin: 0; line-height: 1.6;">
+    <strong>Model Descriptions:</strong><br>
+    1. <strong>Model 1 (CosyVoice-Yue Premium Tone)</strong>: Fine-tuned for high-quality Cantonese premium voice.<br>
+    2. <strong>Model 2 (CosyVoice2-Yue-ZoengJyutGaai)</strong>: Fine-tuned on <a href="https://canclid.github.io/zoengjyutgaai/" target="_blank" rel="noopener">The Zoeng Jyut Gaai Story-telling Speech Dataset</a> (Cantonese story-telling style).
+  </p>
+</div>
+
+<table style="margin: 0 auto; width: 95%; border-collapse: collapse; text-align: center; font-size: 1em;">
+  <thead>
+    <tr style="background-color: #f5f5f5;">
+      <th style="border: 1px solid #ccc; padding: 12px; width: 15%;">Model</th>
+      <th style="border: 1px solid #ccc; padding: 12px; width: 25%;">Reference Audio</th>
+      <th style="border: 1px solid #ccc; padding: 12px; width: 20%;">Text</th>
+      <th style="border: 1px solid #ccc; padding: 12px; width: 25%;">Synthesized Audio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 模型1行 -->
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 12px; font-weight: 500;">Model 1</td>
+      <!-- Reference音频：引用F01_中立_20054.wav -->
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 90%; max-width: 250px;">
+          <source src="raw/TTS_samples/F01_中立_20054.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <!-- 文本1：可根据实际内容修改 -->
+      <td style="border: 1px solid #ccc; padding: 12px; text-align: left;">爲咗配合市區道路維修工程，運輸署宣佈，由下星期一凌晨零時起，彌敦道部分路段會分階段封閉，預計工程會持續至下月十五號，期間請駕駛人士留意交通改道安排，並遵從現場工作人員指示，以免影響行車安全。</td>
+      <!-- 模型1合成音频：引用9f24c7f95a2d040c43ce9fadfa56f6f3.wav -->
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 90%; max-width: 250px;">
+          <source src="raw/TTS_samples/9f24c7f95a2d040c43ce9fadfa56f6f3.wav" type="audio/wav">
+          Your browser does not support the audio element.
+      </td>
+    </tr>
+    <!-- 模型2行 -->
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 12px; font-weight: 500;">Model 2</td>
+      <!-- Reference音频：引用sg_017_090.wav -->
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 90%; max-width: 250px;">
+          <source src="raw/TTS_samples/sg_017_090.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <!-- 文本2：可根据实际内容修改 -->
+      <td style="border: 1px solid #ccc; padding: 12px; text-align: left;">文本2：严嵩，明朝历史上唯一一个廿年牢牢掌控住内阁嘅首辅。佢喺朝廷党羽遍布，权势滔天，但系就算最后家产畀人抄晒、个仔畀人斩咗头，佢都能够独身保命，一直安然无恙，直到寿终正寝。</td>
+      <!-- 模型2合成音频：引用9月7日.WAV -->
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 90%; max-width: 250px;">
+          <source src="raw/TTS_samples/9月7日.WAV" type="audio/wav">
+          Your browser does not support the audio element.
+      </td>
+    </tr>
+  </tbody>
+</table>
     
 </section>
 </body>
-
-<script>
-  // 配置
-  const systems = ["ref", "Llasa-1B", "StepAudio", "Cosyvoice2", "EdgeTTS", "WSYue_TTS", "CosyVoice2-Yue"];
-  const systemDisplayNames = {
-    "ref": "Reference",
-    "Llasa-1B": "Llasa-1B",
-    "WSYue_TTS": "Llasa-1B-Yue",
-    "Cosyvoice2": "Cosyvoice2",
-    "StepAudio": "Step-Audio-TTS-3B",
-    "EdgeTTS": "Edge-TTS",
-    "CosyVoice2-Yue": "CosyVoice2-Yue",
-  };
-
-  // 动态生成表头
-  const headerRow = document.getElementById('header-row');
-  systems.forEach(sys => {
-    const th = document.createElement('th');
-    th.textContent = systemDisplayNames[sys] || sys;
-    headerRow.appendChild(th);
-  });
-
-  // 读取并解析text.txt
-  fetch('raw/TTS_samples/text.txt')
-    .then(response => response.text())
-    .then(text => {
-      const lines = text.trim().split('\n');
-      const data = lines.map(line => {
-        const [filename, content] = line.split('|');
-        return { filename: filename.trim(), text: content.trim() };
-      });
-
-      // 生成表格内容
-      const tbody = document.getElementById('tbody');
-      tbody.innerHTML = ""; // 清空Loading
-      data.forEach(item => {
-        const tr = document.createElement('tr');
-        // 文本列
-        const tdText = document.createElement('td');
-        tdText.className = "text-cell";
-        tdText.textContent = item.text;
-        tr.appendChild(tdText);
-
-        // 各系统音频
-        systems.forEach(sys => {
-          const td = document.createElement('td');
-          const audio = document.createElement('audio');
-          audio.controls = true;
-          audio.style.width = "180px";
-          audio.src = `raw/TTS_samples/${sys}/${item.filename}.wav`;
-          td.appendChild(audio);
-          tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-      });
-    })
-    .catch(err => {
-      document.getElementById('tbody').innerHTML = `<tr><td colspan="${systems.length+1}">Failed to load text.txt: ${err}</td></tr>`;
-    });
-</script>
-</html>
-
 
 
 
