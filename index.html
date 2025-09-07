@@ -974,7 +974,7 @@
     </tbody>
   </table>
 <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">
-  All synthesized samples are taken from the <b>WSYue-TTS-eval</b> test set.
+  The presented audio samples are outputs of the evaluated models on the <b>WSYue-TTS-eval</b> test set.
 </p>
 
 <br>
@@ -1055,19 +1055,14 @@
     "CosyVoice2-Yue": "CosyVoice2-Yue",
   };
 
-  // 特殊高亮的系统
-  const highlightSystems = ["WSYue_TTS", "CosyVoice2-Yue"];
-
   // 动态生成表头
   const headerRow = document.getElementById('header-row');
   systems.forEach(sys => {
     const th = document.createElement('th');
     th.textContent = systemDisplayNames[sys] || sys;
-    if (highlightSystems.includes(sys)) {
-      th.style.backgroundColor = "#ffe0b2"; // 醒目的橙色背景
+    if (sys === "WSYue_TTS" || sys === "CosyVoice2-Yue") {
+      th.style.backgroundColor = "#ffe0b2"; // 高亮颜色
       th.style.fontWeight = "bold";
-    } else {
-      th.style.backgroundColor = "#f9f9f9";
     }
     headerRow.appendChild(th);
   });
@@ -1091,14 +1086,13 @@
         const tdText = document.createElement('td');
         tdText.className = "text-cell";
         tdText.textContent = item.text;
-        tdText.style.backgroundColor = "#f0f0f0";
         tr.appendChild(tdText);
 
         // 各系统音频
         systems.forEach(sys => {
           const td = document.createElement('td');
-          if (highlightSystems.includes(sys)) {
-            td.style.backgroundColor = "#fff3e0"; // 浅橙色，突出显示
+          if (sys === "WSYue_TTS" || sys === "CosyVoice2-Yue") {
+            td.style.backgroundColor = "#fff3e0"; // 高亮颜色
           }
           const audio = document.createElement('audio');
           audio.controls = true;
@@ -1115,58 +1109,4 @@
     });
 </script>
 
-<!-- <script type="" text/javascript>
-  window.onload = function () {
-    let scenes = ["aishell3"]
-    let speakers = ["female", "male"]
-    let genders = ["female", "male"]
-    let models = ["DualVC2", "VQMIVC", "VQMIVC-streaming", "DualVC3-full", "DualVC3-standalone"]
-    let all_samples = [["SSB00430070.wav", "SSB02460443.wav", "SSB03230482.wav", "SSB03410353.wav", "SSB03750317.wav", "SSB04700097.wav", "SSB05900051.wav", "SSB07100255.wav", "SSB07100388.wav", "SSB08170086.wav",], 
-                    ["SSB00430070.wav", "SSB02460443.wav", "SSB03230482.wav", "SSB03410353.wav", "SSB03750317.wav", "SSB04700097.wav", "SSB05900051.wav", "SSB07100255.wav", "SSB07100388.wav", "SSB08170086.wav",]]
-    let sample_data = `
-        <tr>
-          <td style="text-align: center; width: 150px;" rowspan=2><strong>Target Speaker<strong></td>
-          <td style="text-align: center; width: 150px;" rowspan=2><strong>Source Speech<strong></td>
-          <td style="text-align: center; width: 150px;" colspan=5><strong>Method<strong></td>
-        </tr>
-        <tr>
-        `
-    for (const id in models) {
-      model = models[id]
-      if (model == 'Baseline') {
-        model = 'IBF-VC'
-      }
-      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1><strong>' + model + '<strong></td>'
-    }
-    sample_data += "</tr>"
-    console.log(sample_data)
-    
-    for (let x in scenes) {
-      let scene = scenes[x]
-      let scene_data = ""
-      scene_data += '<tr>'
-      //scene_data += '<td style="text-align: center; width: 150px;" rowspan=' + 8 + '><strong>' + scene + ' Source' + '<strong></td>'
-      let samples = all_samples[x]
-      console.log(scene, samples)
-      for (let y in speakers) {
-        speaker = speakers[y]
-        gender = genders[y]
-        scene_data += '<td style="text-align: center; width: 150px;" rowspan=10>' + gender + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"></td>'
-        for (let z in samples) {
-          if (z != 0) {
-            scene_data += '<tr>'
-          }
-          let sample = samples[z]
-          scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
-          for (let w in models) {
-            let model = models[w]
-            scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/' + model + '/' + speaker + '/' + sample + '"></audio></td>'
-          }
-          scene_data += '</tr>'
-        }
-      }
-      sample_data += scene_data
-    }
-    document.getElementById('tbody').innerHTML = sample_data
-  }
-</script> -->
+
