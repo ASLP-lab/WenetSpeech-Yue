@@ -314,7 +314,9 @@ Please cite our paper if you find this work useful:
 ## Contact
 If you are interested in leaving a message to our research team, feel free to email lhli@mail.nwpu.edu.cn or gzhao@mail.nwpu.edu.cn.
 <p align="center">
-    <br>
+<img src="https://github.com/ASLP-lab/WenetSpeech-Yue/raw/main/figs/wechat.jpeg" width="300" alt="WeChat Group QR Code"/>
+<em>Scan to join our WeChat discussion group</em>
+</p>
+<p align="center">
     <img src="./figs/npu@aslp.jpeg" width="500"/>
-    <br>
 </p>
