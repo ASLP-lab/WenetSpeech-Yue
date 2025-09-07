@@ -965,9 +965,66 @@
       </tr>
     </thead>
     <tbody id="tbody">
-      <tr><td colspan="7">Loading...</td></tr>
+      <tr><td colspan="8">Loading...</td></tr>
     </tbody>
   </table>
+
+<!-- 新增定制模型样例展示表格 -->
+<h2 id="custom_tts_samples" style="text-align: center; margin-top: 60px;">Custom TTS Model Samples</h2>
+<!-- 模型说明：放在表格上方，用浅灰背景突出，信息更直观 -->
+<div style="width: 95%; margin: 0 auto 20px; padding: 15px; background-color: #f9f9f9; border-radius: 4px; border-left: 4px solid #4285f4;">
+  <p style="margin: 0; line-height: 1.6;">
+    <strong>Model Descriptions:</strong><br>
+    1. <strong>CosyVoice-Yue (Premium Tone)</strong>: A fine-tuned TTS model optimized for high-quality, premium Cantonese voice output.<br>
+    2. <strong>CosyVoice2-Yue-ZoengJyutGaai</strong>: Fine-tuned on <a href="https://canclid.github.io/zoengjyutgaai/" target="_blank" rel="noopener">The Zoeng Jyut Gaai Story-telling Speech Dataset</a>, specialized in Cantonese story-telling style voice.
+  </p>
+</div>
+
+<table style="margin: 0 auto; width: 95%; border-collapse: collapse; text-align: center; font-size: 1em;">
+  <thead>
+    <tr style="background-color: #f5f5f5;">
+      <th style="border: 1px solid #ccc; padding: 12px; width: 20%;">Sample Type</th>
+      <th style="border: 1px solid #ccc; padding: 12px; width: 40%;">CosyVoice-Yue (Premium Tone)</th>
+      <th style="border: 1px solid #ccc; padding: 12px; width: 40%;">CosyVoice2-Yue-ZoengJyutGaai</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 样例音频行：直接引用指定的音频文件路径 -->
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 12px; font-weight: 500;">Cantonese Voice Sample</td>
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 80%; max-width: 300px;">
+          <source src="raw/TTS_samples/9f24c7f95a2d040c43ce9fadfa56f6f3.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        <p style="margin: 8px 0 0; font-size: 0.9em; color: #666;">File: 9f24c7f95a2d040c43ce9fadfa56f6f3.wav</p>
+      </td>
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 80%; max-width: 300px;">
+          <source src="raw/TTS_samples/9月7日.WAV" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        <p style="margin: 8px 0 0; font-size: 0.9em; color: #666;">File: 9月7日.WAV</p>
+      </td>
+    </tr>
+    <!-- 可选：如需添加第二个样例，可复制上方<tr>修改音频路径和说明 -->
+    <!-- <tr>
+      <td style="border: 1px solid #ccc; padding: 12px; font-weight: 500;">Second Sample (e.g., Story Excerpt)</td>
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 80%; max-width: 300px;">
+          <source src="raw/TTS_samples/[第二个精品音色音频文件名].wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+      <td style="border: 1px solid #ccc; padding: 12px;">
+        <audio controls style="width: 80%; max-width: 300px;">
+          <source src="raw/TTS_samples/[第二个故事风格音频文件名].WAV" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </td>
+    </tr> -->
+  </tbody>
+</table>
     
 </section>
 </body>
