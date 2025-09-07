@@ -854,7 +854,7 @@
 
 <ul style="text-align: justify; width: 100%; margin: 0 0 20px 0; list-style: disc;">
   <li>The table below presents both objective and subjective evaluation results of different TTS systems on the WSYue-TTS-eval benchmark. Objective metrics include Mixed Error Rate (MER) and speaker similarity (SIM) on both the Base and Coverage test sets. Subjective metrics include UTMOSv2, Intelligibility MOS (I-MOS), Speaker Similarity MOS (S-MOS), and Audio Naturalness MOS (A-MOS).</li>
-  <li>Llasa-1B-Yue is our model trained on large-scale Cantonese data and achieves the best performance on most metrics.</li>
+  <li>Llasa-1B-Yue and CosyVoice2-Yue is our model trained on large-scale Cantonese data and achieves the best performance on most metrics.</li>
 </ul>
 
 <table style="margin: 0 auto; display: table; width: 95%; border-collapse: collapse; text-align: center; font-size: 1em;">
@@ -904,19 +904,19 @@
     <tr>
       <td style="border:1px solid #ccc;">CosyVoice2</td>
       <td style="border:1px solid #ccc;">14.38</td>
-      <td style="border:1px solid #ccc;"><b>0.812</b></td>
+      <td style="border:1px solid #ccc;">0.812</td>
       <td style="border:1px solid #ccc;">13.74</td>
-      <td style="border:1px solid #ccc;"><b>0.826</b></td>
-      <td style="border:1px solid #ccc;"><b>2.989</b></td>
+      <td style="border:1px solid #ccc;">0.826</td>
+      <td style="border:1px solid #ccc;">2.989</td>
       <td style="border:1px solid #ccc;">3.72 &plusmn; 0.50</td>
       <td style="border:1px solid #ccc;">3.52 &plusmn; 0.36</td>
       <td style="border:1px solid #ccc;">3.22 &plusmn; 0.60</td>
     </tr>
     <tr>
       <td style="border:1px solid #ccc;">Edge-TTS<sup>&dagger;</sup></td>
-      <td style="border:1px solid #ccc;">8.30</td>
+      <td style="border:1px solid #ccc;"><b>8.30</b></td>
       <td style="border:1px solid #ccc;">-</td>
-      <td style="border:1px solid #ccc;">9.27</td>
+      <td style="border:1px solid #ccc;"><b>9.27</b></td>
       <td style="border:1px solid #ccc;">-</td>
       <td style="border:1px solid #ccc;">2.997</td>
       <td style="border:1px solid #ccc;">4.12 &plusmn; 0.28</td>
@@ -925,25 +925,25 @@
     </tr>
     <tr>
       <td style="border:1px solid #ccc;"><b>Llasa-1B-Yue</b></td>
-      <td style="border:1px solid #ccc;"><b>10.89</b></td>
+      <td style="border:1px solid #ccc;">10.89</td>
       <td style="border:1px solid #ccc;">0.762</td>
-      <td style="border:1px solid #ccc;"><b>12.78</b></td>
+      <td style="border:1px solid #ccc;">12.78</td>
       <td style="border:1px solid #ccc;">0.772</td>
       <td style="border:1px solid #ccc;">2.696</td>
-      <td style="border:1px solid #ccc;"><b>4.30 &plusmn; 0.23</b></td>
+      <td style="border:1px solid #ccc;">4.30 &plusmn; 0.23</td>
       <td style="border:1px solid #ccc;"><b>4.11 &plusmn; 0.37</b></td>
       <td style="border:1px solid #ccc;"><b>4.34 &plusmn; 0.34</b></td>
     </tr>
     <tr>
       <td style="border:1px solid #ccc;"><b>CosyVoice2-Yue</b></td>
       <td style="border:1px solid #ccc;"><b>10.33</b></td>
-      <td style="border:1px solid #ccc;">0.821</td>
+      <td style="border:1px solid #ccc;"><b>0.821</b></td>
       <td style="border:1px solid #ccc;"><b>9.49</b></td>
-      <td style="border:1px solid #ccc;">0.834</td>
-      <td style="border:1px solid #ccc;"> 3.021</td>
+      <td style="border:1px solid #ccc;"><b>0.834</b></td>
+      <td style="border:1px solid #ccc;"><b>3.021</b></td>
       <td style="border:1px solid #ccc;"><b>4.45 &plusmn; 0.16</b></td>
-      <td style="border:1px solid #ccc;"><b>3.78 &plusmn; 0.53</b></td>
-      <td style="border:1px solid #ccc;"><b>4.21 &plusmn; 0.27</b></td>
+      <td style="border:1px solid #ccc;">3.78 &plusmn; 0.53</td>
+      <td style="border:1px solid #ccc;">4.21 &plusmn; 0.27</td>
     </tr>
   </tbody>
 </table>
@@ -965,7 +965,7 @@
       </tr>
     </thead>
     <tbody id="tbody">
-      <tr><td colspan="7">Loading...</td></tr>
+      <tr><td colspan="8">Loading...</td></tr>
     </tbody>
   </table>
 <h2 id="tts" style="text-align: center; margin-top: 40px;">TTS Evaluation</h2>
@@ -979,7 +979,7 @@
     "WSYue_TTS": "Llasa-1B-Yue",
     "Cosyvoice2": "Cosyvoice2",
     "StepAudio": "Step-Audio-TTS-3B",
-    "EdgeTTS": "Edge-TTS<sup>&dagger;</sup>",
+    "EdgeTTS": "Edge-TTS",
     "CosyVoice2-Yue": "CosyVoice2-Yue",
   };
 
