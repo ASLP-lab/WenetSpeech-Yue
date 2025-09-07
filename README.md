@@ -237,10 +237,7 @@ import opencc
 
 # 繁简转换
 converter = opencc.OpenCC('s2t.json')
-```
 
-**CosyVoice2 Usage**
-```python
 cosyvoice_base = CosyVoice2(
     'ASLP-lab/Cosyvoice2-Yue',
     load_jit=False, load_trt=False, load_vllm=False, fp16=False
