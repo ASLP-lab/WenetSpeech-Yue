@@ -267,7 +267,7 @@ WenetSpeech-Pipe Overview:
 
 ### Audio Collection
 WenetSpeech-Pipe collects large-scale, in-the-wild speech recordings across diverse domains such as storytelling, drama, commentary, vlogs, food, entertainment, news, and education. These long recordings are segmented into short clips with VAD, yielding utterance-level data for transcription and quality evaluation.
-<div align="center"><img width="600px" src="https://github.com/llh666521/WenetSpeech-Yue/blob/main/figs/domain_distribution.svg" /></div>
+<div align="center"><img width="600px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/domain_distribution.svg" /></div>
 
 ### Speaker Attribute Annotation
 To enrich the dataset with speaker-level metadata for multi-speaker modeling and style-aware synthesis, WenetSpeech-Pipe includes a Speaker Attributes Annotation stage. Using [pyannote](https://github.com/pyannote/pyannote-audio) toolkit for speaker diarization and [Vox-Profile](https://github.com/tiantiaf0627/vox-profile-release) for age and gender estimation, each utterance-level segment is annotated with speaker identity, age, and gender, enabling supervised and style-controllable speech modeling.
@@ -280,7 +280,7 @@ We select three models with the best performance on Cantonese to perform multi-s
 
 ### Text Postprocessing
 Each ASR transcription system produces outputs in different formats. To standardize these formats, we introduce a text post-processing module, which includes punctuation removal, traditional-to-simplified Chinese conversion, and text normalization. The detailed code can be found in `text_postprocessing.py`.
-<div align="center"><img width="300px" src="https://github.com/llh666521/WenetSpeech-Yue/blob/main/figs/text_processing.svg" /></div>
+<div align="center"><img width="300px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/text_processing.svg" /></div>
 
 ### Recognizer Output Voting
 Despite text postprocessing, ASR outputs still vary in lexical choice, segmentation, and phonetic representation. To obtain unified and accurate reference transcriptions, we adopt and extend the ROVER framework for Cantonese. Normalized transcriptions are first aligned using dynamic programming, after which a filtering module removes outlier outputs based on edit distance. Voting then selects the most frequent word at each aligned position, and the average voting frequency is recorded as an utterance-level confidence score. In parallel, we extend the voting mechanism to Cantonese pinyin by introducing a pronunciation-level confidence measure, further reinforcing phoneme consistency.
