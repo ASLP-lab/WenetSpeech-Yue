@@ -951,6 +951,17 @@
       <td style="border:1px solid #ccc;"><b>3.78 &plusmn; 0.53</b></td>
       <td style="border:1px solid #ccc;"><b>4.21 &plusmn; 0.27</b></td>
     </tr>
+    <tr>
+      <td style="border:1px solid #ccc;"><b>Llasa-1B-Yue-Updated</b><sup>*</sup></td>
+      <td style="border:1px solid #ccc;"><b>10.20</b></td>
+      <td style="border:1px solid #ccc;">0.503</td>
+      <td style="border:1px solid #ccc;"><b>7.84</b></td>
+      <td style="border:1px solid #ccc;">0.541</td>
+      <td style="border:1px solid #ccc;">2.882</td>
+      <td style="border:1px solid #ccc;"><b> - </b></td>
+      <td style="border:1px solid #ccc;"><b> - </b></td>
+      <td style="border:1px solid #ccc;"><b> - </b></td>
+    </tr>
   </tbody>
 </table>
 <!-- <div style="max-width: 900px; margin: 0 auto; font-size: 0.95em; color: #555; text-align: left;">
@@ -958,6 +969,9 @@
 </div> -->
 <div style="font-size: 0.90em; color: #888; text-align: left; margin-top: 8px; margin-left: 2.5%; font-style: italic; max-width: 95%;">
   <sup>&dagger;</sup> Commercial system with a single fixed speaker; speaker similarity is not evaluated.
+</div>
+<div style="font-size: 0.90em; color: #888; text-align: left; margin-top: 4px; margin-left: 2.5%; font-style: italic; max-width: 95%;">
+  <sup>*</sup> Llasa-1B-Yue-Updated is newly added, so subjective metrics (I-MOS, S-MOS, A-MOS) were not evaluated in this version.
 </div>
 
 
@@ -1044,7 +1058,7 @@
 
 <script>
   // 配置
-  const systems = ["ref", "StepAudio", "EdgeTTS", "Llasa-1B", "WSYue_TTS", "Cosyvoice2", "CosyVoice2-Yue"];
+  const systems = ["ref", "StepAudio", "EdgeTTS", "Llasa-1B", "WSYue_TTS", "Cosyvoice2", "CosyVoice2-Yue", "Llasa-1B-Yue-Updated"];
   const systemDisplayNames = {
     "ref": "Reference",
     "Llasa-1B": "Llasa-1B",
@@ -1053,6 +1067,7 @@
     "StepAudio": "Step-Audio-TTS-3B",
     "EdgeTTS": "Edge-TTS",
     "CosyVoice2-Yue": "CosyVoice2-Yue",
+    "Llasa-1B-Yue-Updated": "Llasa-1B-Yue-Updated",
   };
 
   // 动态生成表头
@@ -1060,7 +1075,7 @@
   systems.forEach(sys => {
     const th = document.createElement('th');
     th.textContent = systemDisplayNames[sys] || sys;
-    if (sys === "WSYue_TTS" || sys === "CosyVoice2-Yue") {
+    if (sys === "WSYue_TTS" || sys === "CosyVoice2-Yue" || sys == "Llasa-1B-Yue-Updated") {
       th.style.backgroundColor = "#ffe0b2"; // 高亮颜色
       th.style.fontWeight = "bold";
     }
@@ -1091,7 +1106,7 @@
         // 各系统音频
         systems.forEach(sys => {
           const td = document.createElement('td');
-          if (sys === "WSYue_TTS" || sys === "CosyVoice2-Yue") {
+          if (sys === "WSYue_TTS" || sys === "CosyVoice2-Yue" || sys == "Llasa-1B-Yue-Updated") {
             td.style.backgroundColor = "#fff3e0"; // 高亮颜色
           }
           const audio = document.createElement('audio');
