@@ -50,6 +50,10 @@ This is the official repository 👑 for the WenetSpeech-Yue dataset and the sou
 * Covers ten domains: Storytelling, Entertainment, Drama, Culture, Vlog, Commentary, Education, Podcast, News, and Others.
 <div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/data_distribution.png" /></div>
 
+
+## 📢 News and Updates
+- 2025.11.15 🚀 Released **Llasa-1B-Yue-Updated**.  Access it on [GitHub](https://github.com/ASLP-lab/Llasa-1B-Yue-Updated) and get the model weights on [HuggingFace](https://huggingface.co/ASLP-lab/LLasa-1B-Yue-Updated/tree/main).
+
 ## Benchmark
 To address the unique linguistic characteristics of Cantonese, we propose WSYue-eval, a comprehensive benchmark encompassing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) tasks.
 
