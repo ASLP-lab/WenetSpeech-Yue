@@ -1,0 +1,88 @@
+datasets:
+  _target_: speechvortex.models.base.dataloaders.base_datamodule_pl.BaseDataModule
+  _recursive_: false
+  feat_dir: /home/node36_data/jbhu/code/bicodec_train/wav_bigdata/ssl_feat
+  # jsonlfiles_for_extract: /home/node36_data/jbhu/code/bicodec_train/wav_bigdata/utt2wav_250215_seed_42.jsonl
+  jsonlfiles_for_extract: /home/node36_data/jbhu/code/bicodec_train/wav_bigdata/utt2wav_250215_seed_1234_no_node37_data.jsonl
+  jsonlfiles:
+    # train: /home/node36_data/jbhu/code/bicodec_train/wav_bigdata/utt2wav_250215_seed_42.jsonl
+    train: /home/node36_data/jbhu/code/bicodec_train/wav_bigdata/utt2wav_250215_seed_1234_no_node37_data.jsonl
+    # train: /home/node36_data/jbhu/code/bicodec_train/wav2vec_feat/all_resample.jsonl
+    # val: /home/node36_data/jbhu/code/bicodec_train/wav2vec_feat/all_resample.jsonl
+
+  highpass_cutoff_freq: 40
+  sample_rate: 16000 
+  segment_duration: 2.4 # (s) #ssl受到前后帧影响比较大，这个切片长度还需要修改。
+  max_val_duration: 15 # (s)
+  latent_hop_length: 320
+  ref_segment_duration: 6
+  volume_normalize: true
+
+  dataloader:
+    _target_: speechvortex.models.codec.BigCodec.dataloaders.wavlm_wav_dataset.WavlmWavCodecDataset
+    batch_size: 16
+    val_batch_size: 1
+    num_workers: 8 # 1
+
+wav2vec_model: '/home/work_nfs23/hyzhang/code/bicodec/ckpt/wav2vec2-large-xlsr-53'
+
+audio_tokenizer:
+  mel_params:
+    sample_rate: 16000
+    n_fft: 1024
+    win_length: 640
+    hop_length: 320
+    mel_fmin: 10 
+    mel_fmax: null
+    num_mels: 128
+
+  encoder:
+    input_channels: 1024
+    vocos_dim: 384
+    vocos_intermediate_dim: 2048
+    vocos_num_layers: 12
+    out_channels: 1024
+    sample_ratios: [1,1]
+
+  decoder:
+    input_channel: 1024
+    channels: 1536
+    rates: [8, 5, 4, 2]
+    kernel_sizes: [16,11,8,4]
+
+  quantizer:
+    input_dim: 1024
+    codebook_size: 8192
+    codebook_dim: 8
+    commitment: 0.25
+    codebook_loss_weight: 2.0
+    use_l2_normlize: True
+    threshold_ema_dead_code: 0.2
+  
+  speaker_encoder:
+    input_dim: 128
+    out_dim: 1024
+    latent_dim: 128
+    token_num: 32
+    fsq_levels: [4, 4, 4, 4, 4, 4]
+    fsq_num_quantizers: 1
+
+  prenet:
+    input_channels: 1024
+    vocos_dim: 384
+    vocos_intermediate_dim: 2048
+    vocos_num_layers: 12
+    out_channels: 1024
+    condition_dim: 1024
+    sample_ratios: [1,1]
+    use_tanh_at_final: False
+
+  postnet: 
+    input_channels: 1024
+    vocos_dim: 384
+    vocos_intermediate_dim: 2048
+    vocos_num_layers: 6
+    out_channels: 1024
+    use_tanh_at_final: False
+
+
