@@ -35,6 +35,9 @@ This is the official repository 👑 for the WenetSpeech-Yue dataset and the sou
 
 <div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/wenetspeech_yue.svg" /></div>
 
+## 📢 News and Updates
+- 2025.11.15 🚀 Released **Llasa-1B-Yue-Updated**！ You can download the model weights from [WSYue-TTS](https://huggingface.co/ASLP-lab/WSYue-TTS)
+
 ## Download
 * The WenetSpeech-Yue dataset is available at [WenetSpeech-Yue](https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue).
 * The WSYue-eval benchmark is available at [WSYue-ASR-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval) for ASR and [WSYue-TTS-eval](https://huggingface.co/datasets/ASLP-lab/WSYue-ASR-eval) for TTS.
@@ -49,10 +52,6 @@ This is the official repository 👑 for the WenetSpeech-Yue dataset and the sou
 * Stores metadata in a single JSON file, including audio path, duration, text confidence, speaker identity, SNR, DNSMOS, age, gender, and character-level timestamps. Additional metadata tags may be added in the future.
 * Covers ten domains: Storytelling, Entertainment, Drama, Culture, Vlog, Commentary, Education, Podcast, News, and Others.
 <div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/data_distribution.png" /></div>
-
-
-## 📢 News and Updates
-- 2025.11.15 🚀 Released **Llasa-1B-Yue-Updated**.  Access it on [GitHub](https://github.com/ASLP-lab/Llasa-1B-Yue-Updated) and get the model weights on [HuggingFace](https://huggingface.co/ASLP-lab/LLasa-1B-Yue-Updated/tree/main).
 
 ## Benchmark
 To address the unique linguistic characteristics of Cantonese, we propose WSYue-eval, a comprehensive benchmark encompassing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) tasks.
