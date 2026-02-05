@@ -1,3 +1,4 @@
+📢：**Good news! 8000 hours of multi-label Wu dialect data are also available at [⭐WenetSpeech-Wu⭐](https://github.com/ASLP-lab/WenetSpeech-Wu-Repo).**
 📢：**Good news! 10,000 hours of multi-label Chuan-Yu speech data are also available at [⭐WenetSpeech-Chuan⭐](https://github.com/ASLP-lab/WenetSpeech-Chuan).**
 
 # WenetSpeech-Yue: A Large-scale Cantonese Speech Corpus with Multi-dimensional Annotation
@@ -36,7 +37,9 @@ This is the official repository 👑 for the WenetSpeech-Yue dataset and the sou
 <div align="center"><img width="800px" src="https://github.com/ASLP-lab/WenetSpeech-Yue/blob/main/figs/wenetspeech_yue.svg" /></div>
 
 ## 📢 News and Updates
-- 2025.11.15 🚀 Released **Llasa-1B-Yue-Updated**！ You can download the model weights from [WSYue-TTS](https://huggingface.co/ASLP-lab/WSYue-TTS)
+- **2026/01/07**: 🛠️ We fixed several issues in the metadata. Please use the latest metadata for training.
+- **2025/11/15** 🚀 We released **Llasa-1B-Yue-Updated**！ You can download the model weights from [WSYue-TTS](https://huggingface.co/ASLP-lab/WSYue-TTS)
+- **2025/09/08**: 🎉 The WenetSpeechYue dataset, featuring over 21,800 hours of Cantonese speech, is now available!
 
 ## Download
 * The WenetSpeech-Yue dataset is available at [WenetSpeech-Yue](https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue).
