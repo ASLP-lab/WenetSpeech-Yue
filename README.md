@@ -39,7 +39,7 @@ This is the official repository 👑 for the WenetSpeech-Yue dataset and the sou
 
 ## 📢 News and Updates
 - **2026/01/07**: 🛠️ We fixed several issues in the metadata. Please use the latest metadata for training.
-- **2025/11/15** 🚀 We released **Llasa-1B-Yue-Updated**！ You can download the model weights from [WSYue-TTS](https://huggingface.co/ASLP-lab/WSYue-TTS)
+- **2025/11/15**: 🚀 We released **Llasa-1B-Yue-Updated**！ You can download the model weights from [WSYue-TTS](https://huggingface.co/ASLP-lab/WSYue-TTS)
 - **2025/09/08**: 🎉 The WenetSpeechYue dataset, featuring over 21,800 hours of Cantonese speech, is now available!
 
 ## Download
